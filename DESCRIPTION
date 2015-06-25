@@ -7,6 +7,6 @@ Authors@R: c(
            )
 Description: This package performs spreading-dye simulations of the mid-domain effect ()
 Depends: R (>= 3.1.2)
-License: MIT
+License: MIT + file LICENSE
 LazyData: true
 Imports: raster
