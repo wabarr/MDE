@@ -9,4 +9,5 @@ Description: This package performs spreading-dye simulations of the mid-domain e
 Depends: R (>= 3.1.2)
 License: MIT + file LICENSE
 LazyData: true
-Imports: raster
+Imports: raster,
+    parallel
