@@ -12,6 +12,7 @@
 
 
 GrowRange <- function(world, targetRangeSize, occupiedValue=1, showPlot=FALSE){
+  require(raster)
   stopifnot(is(world, "RasterLayer"))
   if (is.na(targetRangeSize)) targetRangeSize <- raster::ncell(world) * 0.2
   if (all(is.na(raster::values(world)))) stop("All the cell values in the world raster are NA.")

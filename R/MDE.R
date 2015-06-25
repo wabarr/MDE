@@ -16,6 +16,8 @@
 
 MDE <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, nCores=NULL){
   stopifnot(is(world, "RasterLayer"))
+  require(raster)
+  require(parallel)
   if (is.null(nCores)) nCores <- parallel::detectCores() #use all available cores if unspecified
   cl <- parallel::makePSOCKcluster(nCores)
   parallel::clusterExport(cl = cl, varlist = c("GrowRange", "world", "occupiedValue", "adjacent","values", "values<-"), envir = environment())
