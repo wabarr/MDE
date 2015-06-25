@@ -13,9 +13,8 @@
 #' MakeWorld(20, 10, initialValue = 1)
 
 MakeWorld <- function(x.dim, y.dim, initialValue=NA){
-  require(raster)
-  world <- raster(nrows=y.dim, ncols=x.dim, xmn=0, xmx=x.dim, ymn=0, ymx=y.dim)
+  world <- raster::raster(nrows=y.dim, ncols=x.dim, xmn=0, xmx=x.dim, ymn=0, ymx=y.dim)
   #initialize values at 0
-  values(world) <- initialValue
+  raster::values(world) <- initialValue
   return(world)
 }
