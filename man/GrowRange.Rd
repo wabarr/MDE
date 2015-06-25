@@ -7,7 +7,7 @@
 GrowRange(world, targetRangeSize, occupiedValue = 1, showPlot = FALSE)
 }
 \arguments{
-\item{world}{An object of class `raster`}
+\item{world}{An object of class `RasterLayer`}
 
 \item{targetRangeSize}{The target size of the range in pixels.  Defaults to 20\% of the total number of cells in world. Range may not reach target size if there are not enough adjacent pixels to accomodate the target range size.}
 
