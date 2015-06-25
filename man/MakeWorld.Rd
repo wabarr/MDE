@@ -4,14 +4,14 @@
 \alias{MakeWorld}
 \title{Create a simple domain raster}
 \usage{
-MakeWorld(x.dim, y.dim, initialValue = NA)
+MakeWorld(x.dim, y.dim, initialValue = 0)
 }
 \arguments{
 \item{x.dim}{Dimension for the x-axis, in pixels}
 
 \item{y.dim}{Dimension for the y-axis, in pixels}
 
-\item{initialValue}{Value for initializing the raster cell values.  Defaults to NA.}
+\item{initialValue}{Value for initializing the raster cell values.  Defaults to 0.}
 }
 \description{
 This function creates simple rectangular domain rasters, for use with the MDE function.
