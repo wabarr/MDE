@@ -1,4 +1,4 @@
-#' create multiple geographic ranges within a domain and summarize overlap
+#' create multiple geographic ranges within a domain and summarize overlap (i.e., spreading-dye model)
 #'
 #' This function creates random species ranges based on a specified vector of range sizes, and then summarized the overlap of ranges within the domain
 #' @param world An object of class `RasterLayer`
@@ -10,11 +10,11 @@
 #' @examples
 #' \dontrun{
 #' WorldRaster <- MakeWorld(10,10)
-#' MDE(WorldRaster, targetRangeSizes=c(15,15,20,20,50,50,60))
+#' sdm(WorldRaster, targetRangeSizes=c(15,15,20,20,50,50,60))
 #' }
 
 
-MDE <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, nCores=NULL){
+sdm <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, nCores=NULL){
   stopifnot(is(world, "RasterLayer"))
   require(raster)
   require(parallel)
@@ -31,5 +31,5 @@ MDE <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, nC
 
   values(world)[!is.na(values(world))] <- 0 # Reset raster values to zero
   values(world) <- raster::values(world) + richnessValues # Add the simulated spreading dye richnesses to raster cells. Outline of continents is maintained because NA plus a number is NA
-  if(showPlot) {plot(world, main=sprintf("MDE prediction for %d ranges", length(targetRangeSizes))); return(world)} else return(world)
+  if(showPlot) {plot(world, main=sprintf("sdm prediction for %d ranges", length(targetRangeSizes))); return(world)} else return(world)
 }
