@@ -1,4 +1,4 @@
-Package: MDE
+Package: SpreadingDye
 Title: Performs MDE Spreading-Dye Simulations
 Version: 0.1
 Authors@R: c(
@@ -11,3 +11,5 @@ License: MIT + file LICENSE
 LazyData: true
 Imports: raster,
     parallel
+Suggests: knitr
+VignetteBuilder: knitr

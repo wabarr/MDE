@@ -10,11 +10,11 @@
 #' @examples
 #' \dontrun{
 #' WorldRaster <- MakeWorld(10,10)
-#' sdm(WorldRaster, targetRangeSizes=c(15,15,20,20,50,50,60))
+#' SDMDE(WorldRaster, targetRangeSizes=c(15,15,20,20,50,50,60))
 #' }
 
 
-sdm <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, nCores=NULL){
+SDMDE <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, nCores=NULL){
   stopifnot(is(world, "RasterLayer"))
   require(raster)
   require(parallel)
