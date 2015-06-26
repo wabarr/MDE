@@ -31,5 +31,5 @@ SDMDE <- function(world, targetRangeSizes, occupiedValue = 1, showPlot = FALSE, 
 
   values(world)[!is.na(values(world))] <- 0 # Reset raster values to zero
   values(world) <- raster::values(world) + richnessValues # Add the simulated spreading dye richnesses to raster cells. Outline of continents is maintained because NA plus a number is NA
-  if(showPlot) {plot(world, main=sprintf("sdm prediction for %d ranges", length(targetRangeSizes))); return(world)} else return(world)
+  if(showPlot) {plot(world, main=sprintf("Spreading-Dye prediction for %d ranges", length(targetRangeSizes))); return(world)} else return(world)
 }
