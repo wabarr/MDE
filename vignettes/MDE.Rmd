@@ -10,15 +10,16 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-## Make a simple domain
+## Load Data
 
-The `MakeWorld()` function is very simple and is not designed for serious use.  The purpose is merely to have a way to create a toy domain raster to get started quickly. 
+The package ships with a build in domain file called `africa`
 
 ```{r message=FALSE, warning=FALSE}
 library(raster)
-library(MDE)
-world <- MakeWorld(10,10)
-plot(world)
+library(SpreadingDye)
+
+data(africa)
+plot(africa)
 ```
 
 ## Grow a range
@@ -26,8 +27,8 @@ plot(world)
 This is the workhorse function of the package, which grows a taxon range of a specified size (# of pixels) within the domain raster.  The range grows by the spreading-dye model: a random pixel is chosen, and the range expands to a neighboring pixel incrementally until the target range size is reached. Rook's case adjacency is used, meaning that cells are only considered neighbors if they share an edge (i.e. each pixel has only 4 neighbors)
 
 ```{r fig.show='hold'}
-GrowRange(world, targetRangeSize = 15, showPlot = TRUE)
-GrowRange(world, targetRangeSize = 80, showPlot = TRUE)
+GrowRange(africa, targetRangeSize = 200, showPlot = TRUE)
+GrowRange(africa, targetRangeSize = 500, showPlot = TRUE)
 ```
 
 
@@ -36,5 +37,5 @@ GrowRange(world, targetRangeSize = 80, showPlot = TRUE)
 To do an actual MDE simulation, we need to simulate multiple ranges, and see how they accumulate.  
 
 ```{r fig.height=6, fig.width=6}
-MDE(world, targetRangeSizes = c(50,20,30,55,22,17,19,58,10),showPlot = TRUE)
+SDMDE(africa, targetRangeSizes = c(500,220,305,525,212,171,192,582,101),showPlot = TRUE)
 ```

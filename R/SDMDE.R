@@ -9,8 +9,8 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' WorldRaster <- MakeWorld(10,10)
-#' SDMDE(WorldRaster, targetRangeSizes=c(15,15,20,20,50,50,60))
+#' data(africa)
+#' SDMDE(africa, targetRangeSizes=c(15,15,20,20,50,50,60))
 #' }
 
 
