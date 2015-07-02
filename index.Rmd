@@ -1,0 +1,10 @@
+---
+title: "SpreadingDye"
+author: "Andrew Barr"
+date: "July 2, 2015"
+output: html_document
+---
+
+## SpreadingDye
+
+Instructions for using the SpreadingDye package
