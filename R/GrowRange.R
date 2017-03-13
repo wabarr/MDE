@@ -1,7 +1,7 @@
 #' Grow a range to a target size within a given domain raster
 #'
 #' This function grows a single species range to a target size within a given raster, using rook's case adjacency. Raster cells with NA values are unavailable for range expansion, thus there must be some non-NA value in the world raster.
-#' @param world An object of class `RasterLayer`
+#' @param world An object of class `RasterLayer`. Pixels with NA values are interpreted as outside of the domain (off-limits for ranges).
 #' @param targetRangeSize The target size of the range in pixels.  Defaults to 20\% of the total number of cells in world. Range may not reach target size if there are not enough adjacent pixels to accomodate the target range size.
 #' @param occupiedValue The value to use to indicate that a cell is occupied.  Defaults to 1.
 #' @param showPlot Whether or not to show the plot of the resulting range.  Defaults to FALSE.

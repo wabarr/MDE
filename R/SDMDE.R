@@ -1,7 +1,7 @@
 #' create multiple geographic ranges within a domain and summarize overlap (i.e., spreading-dye model)
 #'
 #' This function creates random species ranges based on a specified vector of range sizes, and then summarized the overlap of ranges within the domain
-#' @param world An object of class `RasterLayer`
+#' @param world An object of class `RasterLayer`. Pixels with NA values are interpreted as outside of the domain (off-limits for ranges).
 #' @param targetRangeSizes A vector of target range sizes in pixels.  The GrowRange() function will be used to grow ranges for all elements in this vector.
 #' @param occupiedValue The cell value used to represent a cell is occupied.  Defaults to 1.
 #' @param showPlot Whether or not to show the plot.  Defaults to FALSE

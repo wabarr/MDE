@@ -3,7 +3,7 @@
 #' This function creates simple rectangular domain rasters, for use with the MDE function.
 #' @param x.dim Dimension for the x-axis, in pixels
 #' @param y.dim Dimension for the y-axis, in pixels
-#' @param initialValue Value for initializing the raster cell values.  Defaults to 0.
+#' @param initialValue Value for initializing the raster cell values.  Defaults to 0. Pixels with NA values are interpreted as out of the domain by the \code{SpreadingDye::GrowRange()} and \code{SpreadingDye::SDMDE()} functions
 #' @export
 #' @examples
 #' # a 10 by 10 raster with NA for each cell value
