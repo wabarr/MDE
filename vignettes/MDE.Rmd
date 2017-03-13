@@ -12,7 +12,7 @@ vignette: >
 
 ## Load Data
 
-The package ships with a build in domain file called `africa`
+The package ships with a built-in domain file called `africa`
 
 ```{r message=FALSE, warning=FALSE}
 library(raster)
