@@ -1,0 +1,41 @@
+---
+title: "Doing Spreading-Dye MDE Simulations With The MDE Package"
+author: "W. Andrew Barr"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+bibliography: 
+vignette: >
+  %\VignetteIndexEntry{Doing Spreading-Dye MDE Simulations With The MDE Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+## Load Data
+
+The package ships with a built-in domain file called `africa`
+
+```{r message=FALSE, warning=FALSE}
+library(raster)
+library(SpreadingDye)
+
+data(africa)
+plot(africa)
+```
+
+## Grow a range
+
+This is the workhorse function of the package, which grows a taxon range of a specified size (# of pixels) within the domain raster.  The range grows by the spreading-dye model: a random pixel is chosen, and the range expands to a neighboring pixel incrementally until the target range size is reached. Rook's case adjacency is used, meaning that cells are only considered neighbors if they share an edge (i.e. each pixel has only 4 neighbors)
+
+```{r fig.show='hold'}
+GrowRange(africa, targetRangeSize = 200, showPlot = TRUE)
+GrowRange(africa, targetRangeSize = 500, showPlot = TRUE)
+```
+
+
+## Do an MDE simulation
+
+To do an actual MDE simulation, we need to simulate multiple ranges, and see how they accumulate.  
+
+```{r fig.height=6, fig.width=6}
+SDMDE(africa, targetRangeSizes = c(500,220,305,525,212,171,192,582,101),showPlot = TRUE)
+```
